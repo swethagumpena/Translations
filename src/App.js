@@ -1,12 +1,18 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import NavBar from './Components/NavBar/NavBar';
+import HomePage from './Containers/HomePage/HomePage';
 
-function App() {
-  return (
-    <div className="App">
-      MY APP
-    </div>
-  );
-}
+const App = () => (
+  <>
+    <NavBar />
+    <Switch>
+      <Route path="/" exact>
+        <HomePage />
+      </Route>
+    </Switch>
+  </>
+);
 
 export default App;
