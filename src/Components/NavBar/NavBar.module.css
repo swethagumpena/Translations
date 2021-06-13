@@ -34,11 +34,11 @@
     align-items: center;
   }
   
-  .button {
-    background-color: rgba(92, 88, 88, 0.699);
-    color: white;
-    border: 0;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
+  .time {
+    margin-right:2rem
+  }
+  
+  .date {
+    margin-right:2rem
   }
   
