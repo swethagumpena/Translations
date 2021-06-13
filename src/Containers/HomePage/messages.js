@@ -17,6 +17,6 @@ export default defineMessages({
   },
   quantity: {
     id: `${scope}.quantity`,
-    defaultMessage: 'Quantity {qt}',
+    defaultMessage: '{count, plural, =0 {no items} one {# item} other {# items}}',
   },
 });

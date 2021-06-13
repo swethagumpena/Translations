@@ -7,14 +7,17 @@ import messages from './messages';
 
 export const Context = React.createContext();
 
-// default lang -  ENGLISH
 const Provider = ({ children, locale = LOCALES.ENGLISH }) => {
+  const currencies = { 'en-us': 'USD', 'de-de': 'GBP', 'fr-ca': 'EUR' };
   const [local, setLocal] = useState(locale);
+  const [currency, setCurrency] = useState(currencies[locale]);
   const selectLanguage = (e) => {
     setLocal(e.target.value);
+    setCurrency(currencies[e.target.value]);
   };
+
   return (
-    <Context.Provider value={{ local, selectLanguage }}>
+    <Context.Provider value={{ local, selectLanguage, currency }}>
       <IntlProvider
         locale={local}
         textComponent={Fragment}
