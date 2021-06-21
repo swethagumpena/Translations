@@ -1,4 +1,4 @@
-import en from './en-US';
+import en from './en-IN';
 import de from './de-DE';
 import fr from './fr-CA';
 

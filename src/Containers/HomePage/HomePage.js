@@ -1,48 +1,64 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/style-prop-object */
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { useContext } from 'react';
-import { FormattedMessage, FormattedNumber } from 'react-intl';
-import { products } from '../../Utils/mockData';
+import React, { useState, useEffect } from 'react';
+import { products } from '../../Data/mockData';
 import Card from '../../Components/Card/Card';
 import Cart from '../../Components/Cart/Cart';
 import styles from './HomePage.module.css';
-import messages from './messages';
-import { Context } from '../../i18n/provider';
 
 const HomePage = () => {
-  const context = useContext(Context);
+  const [cartQuantity, setCartQuantity] = useState({});
+  const [cartItems, setCartItems] = useState(0);
+
+  useEffect(() => {
+    const quantity = products.reduce((prevValue, item) => ({
+      ...prevValue,
+      [item.id]: 0,
+    }), {});
+    setCartQuantity(quantity);
+  }, []);
+
+  const addItem = (id) => {
+    const updatedQuantity = cartQuantity[id] + 1;
+    const updatedCartQuantity = { ...cartQuantity, [id]: updatedQuantity };
+    setCartQuantity(updatedCartQuantity);
+    const totalItems = Object.values(updatedCartQuantity).reduce(
+      (acc, item) => acc + item,
+      0,
+    );
+    setCartItems(totalItems);
+  };
+
+  const removeItem = (id) => {
+    if (cartQuantity[id] > 0) {
+      const updatedQuantity = cartQuantity[id] - 1;
+      const updatedCartQuantity = { ...cartQuantity, [id]: updatedQuantity };
+      setCartQuantity(updatedCartQuantity);
+      const totalItems = Object.values(updatedCartQuantity).reduce(
+        (acc, item) => acc + item,
+        0,
+      );
+      setCartItems(totalItems);
+    }
+  };
   return (
     <div className={styles.homePageWrapper}>
       <div className={styles.sideMenu}>
         <div className={styles.cardWrapper}>
           {products.map((product) => (
             <Card
-              name={(
-                <FormattedMessage
-                  {...messages.name}
-                  values={{ nm: product.name }}
-                />
-          )}
-              price={(
-                <FormattedNumber
-                  value={product.price}
-                  style="currency"
-                  currencyDisplay="symbol"
-                  currency={context.currency}
-                />
-          )}
-              quantity={(
-                <FormattedMessage
-                  {...messages.quantity}
-                  values={{ count: product.quantity }}
-                />
-          )}
+              name={product.name}
+              price={product.price}
+              unit={product.unit}
+              quantity={cartQuantity[product.id]}
+              addItem={() => addItem(product.id)}
+              removeItem={() => removeItem(product.id)}
             />
           ))}
         </div>
       </div>
-      <div className="bodyWrapper">
-        <Cart />
+      <div className={styles.bodyWrapper}>
+        <Cart cartItems={cartItems} />
       </div>
     </div>
   );

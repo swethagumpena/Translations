@@ -7,8 +7,11 @@ import messages from './messages';
 
 export const Context = React.createContext();
 
+// INR->
+// GBP-> UK pound
+// EUR-> Euro
 const Provider = ({ children, locale = LOCALES.ENGLISH }) => {
-  const currencies = { 'en-us': 'USD', 'de-de': 'GBP', 'fr-ca': 'EUR' };
+  const currencies = { 'en-in': 'INR', 'de-de': 'GBP', 'fr-ca': 'EUR' };
   const [local, setLocal] = useState(locale);
   const [currency, setCurrency] = useState(currencies[locale]);
   const selectLanguage = (e) => {

@@ -9,11 +9,11 @@ export default defineMessages({
   },
   name: {
     id: `${scope}.name`,
-    defaultMessage: 'Name: {nm}',
+    defaultMessage: 'Product: {nm}',
   },
   price: {
     id: `${scope}.price`,
-    defaultMessage: 'Price {pr}',
+    defaultMessage: 'Unit price: {pr}',
   },
   quantity: {
     id: `${scope}.quantity`,

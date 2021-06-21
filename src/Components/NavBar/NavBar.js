@@ -12,7 +12,7 @@ const NavBar = () => {
       <ul>
         <div className={styles.leftContent}>
           <Link to="/home">
-            My App
+            E-Shopper
           </Link>
         </div>
         <div className={styles.rightContent}>
@@ -34,7 +34,7 @@ const NavBar = () => {
             />
           </div>
           <select value={context.local} onChange={context.selectLanguage}>
-            <option value="en-us">English</option>
+            <option value="en-in">English</option>
             <option value="de-de">German</option>
             <option value="fr-ca">French</option>
           </select>
