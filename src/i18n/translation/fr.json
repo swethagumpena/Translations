@@ -1,0 +1,7 @@
+{
+  "app.component.Card.name": "Produit: {nm}",
+  "app.component.Card.price": "Prix ​​unitaire: ",
+  "app.component.Card.quantity": "{count, plural, =0 {# } one {# objet} other {# éléments}}",
+  "app.components.Cart.header": "This is the Cart component!",
+  "app.components.Cart.quantity": "Chariot: {count, plural, =0 {# éléments} one {# objet} other {# éléments}}"
+}

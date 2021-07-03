@@ -1,19 +1,15 @@
 import { defineMessages } from 'react-intl';
 
-export const scope = 'app.containers.HomePage';
+export const scope = 'app.component.Card';
 
 export default defineMessages({
-  header: {
-    id: `${scope}.header`,
-    defaultMessage: 'This is the HomePage container!',
-  },
   name: {
     id: `${scope}.name`,
-    defaultMessage: 'Name: {nm}',
+    defaultMessage: 'Product: {nm}',
   },
   price: {
     id: `${scope}.price`,
-    defaultMessage: 'Price {pr}',
+    defaultMessage: 'Unit price: ',
   },
   quantity: {
     id: `${scope}.quantity`,
