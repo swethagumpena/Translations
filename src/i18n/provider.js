@@ -3,7 +3,7 @@ import React, { Fragment, useState } from 'react';
 import { IntlProvider } from 'react-intl';
 
 import { LOCALES } from './locales';
-import messages from './messages';
+import messages from './translation';
 
 export const Context = React.createContext();
 
